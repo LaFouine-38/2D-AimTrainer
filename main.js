@@ -1,10 +1,10 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu, MenuItem } = require('electron')
 const path = require('node:path')
 
-const createWindow = () => {
+const createWindow = (filePath) => {
     // Create the browser window.
     const mainWindow = new BrowserWindow({
         width: 800,
@@ -17,7 +17,7 @@ const createWindow = () => {
     })
 
     // and load the index.html of the app.
-    mainWindow.loadFile('src/features/home/index.html')
+    mainWindow.loadFile(filePath)
 
     // Open the DevTools.
     // mainWindow.webContents.openDevTools()
@@ -27,7 +27,7 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    createWindow()
+    createWindow('src/features/home/index.html')
 
     app.on('activate', () => {
         // On macOS it's common to re-create a window in the app when the
@@ -45,3 +45,38 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+const menuItems = [
+    {
+        label: 'Home',
+        click: (menuItem, window) => window.loadFile('src/features/home/index.html')
+    },
+    {
+        label: 'Settings',
+        click: (menuItem, window) => window.loadFile('src/features/settings/settings.html')
+    },
+    {
+        label: 'Aim Trainer',
+        click: (menuItem, window) => window.loadFile('src/features/aimtrainer/aimtrainer.html')
+    },
+    {
+        label: 'Autres',
+        submenu: [
+            {
+                label: 'reload',
+                accelerator: process.platform === 'darwin' ? 'Cmd+R' : 'Ctrl+R',
+                click: (menuItem, window) => window.reload()
+            },
+            {
+                label: 'toggle devtools',
+                accelerator: process.platform === 'darwin' ? 'Cmd+Shift+C' : 'Ctrl+Shift+C',
+                click: (menuItem, window) => window.webContents.toggleDevTools()
+            }
+        ]
+    }
+]
+
+const menu = Menu.buildFromTemplate(menuItems)
+
+
+Menu.setApplicationMenu(menu)

@@ -6,23 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ca règle</title>
     <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
 </head>
 
 <body>
 
-    <label for="target-radius">Taille de la cible</label>
-    <input type="range" min="1" max="100" value="50" name="radius" id="target-radius">
+    <div id="settings" class="container">
+        <div id="input-container">
+            <div class="range-input">
+                <label for="target-radius">Rayon de la cible (N/Apx)</label>
+                <input type="range" min="1" max="100" value="50" name="radius" id="target-radius">
+            </div>
+    
+            <div class="range-input">
+                <label for="target-border-radius">Arrondissement des coins (N/A%)</label>
+                <input type="range" min="0" max="50" value="10" name="border-radius" id="target-border-radius">
+            </div>
+            
+            <div id="colorpicker-input">
+                <label for="colorpicker">Couleur de la cible</label>
+                <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+            </div>
+        </div>
 
-    <label for="target-border-radius">Arrondissement des coins</label>
-    <input type="range" min="0" max="50" value="10" name="border-radius" id="target-border-radius">
+        <div id="button-container">
+            <a href="#" id="cancel-button" class="button" aria-disabled="true">Annuler</a>
+            <a href="#" id="save-button" class="button">Enregistrer</a>
+        </div>
 
-    <label for="colorpicker">Color Picker</label>
-    <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+    </div>
+    <div id="preview" class="container">
+        <div id="target"></div>
+    </div>
 
-    <div id="target"></div>
 
-
-    <script src="scripts/index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 
 </html>

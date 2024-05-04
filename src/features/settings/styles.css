@@ -1,4 +1,84 @@
-input[type=color]::-webkit-color-swatch 
+/* input[type=color]::-webkit-color-swatch 
 { 
     background-color: transparent !important; 
+} */
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+.container {
+    display:flex;
+    background-color: aqua;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 25px;
+}
+
+#settings {
+    flex-direction: column;
+    width: 50%;
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 100px;
+
+}
+#input-container > .range-input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#colorpicker-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#cancel-button {
+    background-color: red;
+    color: white;
+}
+
+#cancel-button[aria-disabled="true"] {
+    background-color: gray;
+    color: white;
+}
+
+#save-button {
+    background-color: green;
+    color: white;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    width: 40%;
+    text-decoration: none;
+}
+
+
+#preview {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ca règle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <label for="target-radius">Taille de la cible</label>
+    <input type="range" min="1" max="100" value="50" name="radius" id="target-radius">
+
+    <label for="target-border-radius">Arrondissement des coins</label>
+    <input type="range" min="0" max="50" value="10" name="border-radius" id="target-border-radius">
+
+    <label for="colorpicker">Color Picker</label>
+    <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+
+    <div id="target"></div>
+
+
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>

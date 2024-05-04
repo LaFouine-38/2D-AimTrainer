@@ -1,0 +1,4 @@
+input[type=color]::-webkit-color-swatch 
+{ 
+    background-color: transparent !important; 
+}

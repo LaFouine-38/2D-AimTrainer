@@ -60,15 +60,15 @@ const menuItems = [
         click: (menuItem, window) => window.loadFile('src/features/aimtrainer/aimtrainer.html')
     },
     {
-        label: 'Autres',
+        label: 'Others',
         submenu: [
             {
-                label: 'reload',
+                label: 'Reload',
                 accelerator: process.platform === 'darwin' ? 'Cmd+R' : 'Ctrl+R',
                 click: (menuItem, window) => window.reload()
             },
             {
-                label: 'toggle devtools',
+                label: 'Toggle DevTools',
                 accelerator: process.platform === 'darwin' ? 'Cmd+Shift+C' : 'Ctrl+Shift+C',
                 click: (menuItem, window) => window.webContents.toggleDevTools()
             }
